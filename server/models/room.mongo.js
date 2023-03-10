@@ -6,7 +6,7 @@ const roomSchema = new mongoose.Schema({
 	},
 	user_email: {
 		type: String,
-		required: true,
+	
 	},
 	room_number: {
 		type: Number,
@@ -14,11 +14,11 @@ const roomSchema = new mongoose.Schema({
 	},
 	start_time: {
 		type: Date,
-		required: true,
+		// required: true,
 	},
 	end_time: {
 		type: Date,
-		required: true,
+		// required: true,
 	},
     status: {
 		type: Boolean,
