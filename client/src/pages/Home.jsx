@@ -1,9 +1,14 @@
 import React from 'react'
+import MyForm from '../components/MyForm';
+import Navbar from '../components/Navbar';
 
-function home() {
+function Home() {
   return (
-    <div>home</div>
+    <div>
+        <Navbar/>
+        <MyForm/>
+    </div>
   );
 }
 
-export default home
+export default Home

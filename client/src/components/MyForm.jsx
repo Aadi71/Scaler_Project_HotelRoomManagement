@@ -16,27 +16,46 @@ function MyForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>Enter your name:
+    <form className = "form" onSubmit={handleSubmit}>
+      <label className = "input">Enter your name:
       <input 
         type="text" 
         name="username" 
         value={inputs.username || ""} 
         onChange={handleChange}
       />
+      <br />
       </label>
-      <label>Enter your age:
+      <label className = "input">Enter your email:
         <input 
-          type="number" 
-          name="age" 
-          value={inputs.age || ""} 
+          type="text" 
+          name="email" 
+          value={inputs.email || ""} 
           onChange={handleChange}
         />
         </label>
-        <input type="submit" />
+        <br />
+        <label className = "input">Enter start time:
+        <input 
+          type="datetime-local" 
+          name="start_time" 
+          value={inputs.start_time || ""} 
+          onChange={handleChange}
+        />
+        </label>
+        <br />
+        <label className = "input">Enter end time:
+        <input 
+          type="datetime-local" 
+          name="end_time" 
+          value={inputs.end_time || ""} 
+          onChange={handleChange}
+        />
+        </label>
+        <br />
+        <input type="submit" className = "submit" value = "Get Recommendations"/>
     </form>
   )
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<MyForm />);
+export default MyForm;
