@@ -20,7 +20,7 @@ function MyForm() {
 		const response = await axios.post(
 			"http://localhost:5000/guests/recommend",
 			{
-				room_type: "A",
+				room_type: inputs.room_type,
 				start_time: inputs.start_time,
 				end_time: inputs.end_time,
 			}
@@ -40,7 +40,7 @@ function MyForm() {
 	const bookRoom = async (event) => {
 		// console.log(event.target.innerText, typeof +event.target.innerText);
 		const response = await axios.post("http://localhost:5000/guests", {
-			room_type: "A",
+			room_type: inputs.room_type,
 			room_number: +event.target.innerText,
 			start_time: inputs.start_time,
 			end_time: inputs.end_time,
