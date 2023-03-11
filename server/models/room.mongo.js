@@ -4,24 +4,9 @@ const roomSchema = new mongoose.Schema({
 		type: String,
 		required: true,
 	},
-	user_email: {
-		type: String,
-	
-	},
+
 	room_number: {
 		type: Number,
-		required: true,
-	},
-	start_time: {
-		type: Date,
-		// required: true,
-	},
-	end_time: {
-		type: Date,
-		// required: true,
-	},
-    status: {
-		type: Boolean,
 		required: true,
 	},
 });
