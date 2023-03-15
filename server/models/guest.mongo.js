@@ -24,6 +24,10 @@ const guestSchema = new mongoose.Schema({
 		type: Date,
 		required: true,
 	},
+	payment:{
+		type:Number,
+		
+	}
 });
 
 const guest = mongoose.model("Guest", guestSchema);

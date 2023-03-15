@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import MyForm from "../components/MyForm";
+
 const View = () => {
 	const [guests, setGuests] = useState([]);
-	useEffect(() => {
+	useEffect(() => {	
 		const fetchData = async () => {
 			const response = await axios.get("http://localhost:5000/guests");
 			setGuests(response.data);
@@ -11,9 +13,14 @@ const View = () => {
 		fetchData();
 	}, []);
 
+	async function handleDelete(id){
+		const resp =await axios.delete(`http://localhost:5000/guests/${id}`);
+		console.log(resp)
+	}
+
 	return (
 		<>
-			<table>
+			<table className="table">
 				<thead>
 					<tr>
 						<th scope="col">Email</th>
@@ -27,17 +34,17 @@ const View = () => {
 			</table>
 			<tbody>
 				{guests.map((guest) => (
-					<tr key={guest.guest_id}>
-						<td>{guest.user_email}</td>
-						<td>{guest.room_type}</td>
-						<td>{guest.room_number}</td>
+					<tr key={guest._id}>
+						<td>{`${guest.user_email}`} &nbsp;</td>
+						<td>{guest.room_type} &nbsp;</td>
+						<td>{guest.room_number} &nbsp;</td>
 						<td>
-							{guest.start_time} - {guest.end_time}
+							{guest.start_time.slice(0,16)}&nbsp; - &nbsp;{guest.end_time.slice(0,16)}&nbsp;
 						</td>
-						<td>{guest.booking_time}</td>
+						<td>{guest.booking_time.slice(0,16)}&nbsp;</td>
 						<td>
-							<button>Edit</button>
-							<button>Delete</button>
+							<button>Edit</button>&nbsp;
+							<button onClick={()=>handleDelete(guest._id)}>Delete&nbsp;</button>
 						</td>
 					</tr>
 				))}

@@ -1,11 +1,11 @@
 const roomDatabase = require("../models/room.mongo");
+const roomTypeDatabase = require("../models/room_types.mongo");
 
 const getRooms = async (req, res) => {
     const { type } = req.query;
     const room = await roomDatabase.find({
         room_type: type,
     });
-
     res.send(room);
 };
 
@@ -28,4 +28,10 @@ const allotRoom = async (req, res) => {
     res.send(room);
 };
 
-module.exports = { allotRoom, getRooms };
+
+const getRoomTypes = async (req, res) => {
+    const price = await roomTypeDatabase.find();
+    res.send(price);
+}
+
+module.exports = { allotRoom, getRooms, getRoomTypes };

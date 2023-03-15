@@ -4,7 +4,7 @@ const cors = require("cors");
 
 const roomRouter = require("./routes/room.route");
 const guestRouter = require("./routes/guest.route");
-app.use(express.json());
+app.use(express.json());    
 
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
